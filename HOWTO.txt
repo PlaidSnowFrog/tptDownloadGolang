@@ -1,0 +1,10 @@
+Step by step tutorial on how to set up and remove this script
+
+SET UP:
+    1 - Create a new EMPTY directory, where you will put the executable file
+    2 - Run the file
+    3 - DO NOT, UNDER ANY CIRCUMSTANCES, MOVE THE FILE OR THE LOG IT WILL CREATE
+
+REMOVE:
+    1 - Go to "APPDATA/Microsoft/Windows/Start Menu/Programs/Startup" and remove DownloadTpT.bat
+    2 - Remove the directory in which you put the executable file
