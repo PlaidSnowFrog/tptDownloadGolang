@@ -66,13 +66,22 @@ func writeBat() error {
         return err
     }
 
-    startupPath := filepath.Join(os.Getenv("APPDATA"), "Microsoft", "Windows", "Start Menu", "Programs", "Startup")
+    appData := os.Getenv("APPDATA")
+    startupPath := filepath.Join(appData, "Microsoft", "Windows", "Start Menu", "Programs", "Startup")
     batPath := filepath.Join(startupPath, "DownloadTpT.bat")
-    batContent := fmt.Sprintf(`start "" "%s"`, ex)
+    batContent := fmt.Sprintf(`@echo off
+start "" "%s"
+exit
+`, ex)
 
     err = ioutil.WriteFile(batPath, []byte(batContent), 0644)
-    return err
+    if err != nil {
+        return err
+    }
+
+    return nil
 }
+
 
 func writeLog(definer int) error {
     ex, err := os.Executable()
